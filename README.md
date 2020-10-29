@@ -1,7 +1,7 @@
 # LearnMarlowe
 first crack at simple contract in marlowe
 
-Hypothetical contract:
+hypothetical contract:
 two parties agree that a 3rd party 'judge' is to choose who gets the sum of their deposited funds, after a certain amount of time the debt of this judgement is paid back
 
 1. parties (PK=person1,person2) deposit equal value of funds to intermediary (account:intermediate) 
