@@ -6,98 +6,108 @@ When
             (Token "" "")
             (Constant 1)
         )
-        (If
-            (ChoseSomething
-                (ChoiceId
-                    "person1"
-                    (Role "judge")
-                ))
-            (Pay
-                (Role "intermediate")
-                (Account (PK "person1"))
-                (Token "" "")
-                (Constant 2)
-                (When
-                    [Case
-                        (Deposit
-                            (Role "intermediate")
-                            (PK "person1")
-                            (Token "" "")
-                            (Constant 1)
+        (When
+            [Case
+                (Deposit
+                    (Role "intermediate")
+                    (PK "person1")
+                    (Token "" "")
+                    (Constant 1)
+                )
+                (If
+                    (ChoseSomething
+                        (ChoiceId
+                            "person1"
+                            (Role "judge")
+                        ))
+                    (Pay
+                        (Role "intermediate")
+                        (Account (PK "person1"))
+                        (Token "" "")
+                        (Constant 2)
+                        (When
+                            [Case
+                                (Deposit
+                                    (Role "intermediate")
+                                    (PK "person1")
+                                    (Token "" "")
+                                    (Constant 1)
+                                )
+                                (Pay
+                                    (Role "intermediate")
+                                    (Account (PK "person2"))
+                                    (Token "" "")
+                                    (Constant 1)
+                                    Close 
+                                )]
+                            60
+                            (Pay
+                                (PK "person1")
+                                (Account (PK "person2"))
+                                (Token "" "")
+                                (Constant 1)
+                                Close 
+                            )
                         )
+                    )
+                    (If
+                        (ChoseSomething
+                            (ChoiceId
+                                "person2"
+                                (Role "judge")
+                            ))
                         (Pay
                             (Role "intermediate")
                             (Account (PK "person2"))
                             (Token "" "")
-                            (Constant 1)
-                            Close 
-                        )]
-                    60
-                    (Pay
-                        (PK "person1")
-                        (Account (PK "person2"))
-                        (Token "" "")
-                        (Constant 1)
-                        Close 
-                    )
-                )
-            )
-            (If
-                (ChoseSomething
-                    (ChoiceId
-                        "person2"
-                        (Role "judge")
-                    ))
-                (Pay
-                    (Role "intermediate")
-                    (Account (PK "person2"))
-                    (Token "" "")
-                    (Constant 2)
-                    (When
-                        [Case
-                            (Deposit
-                                (Role "intermediate")
-                                (PK "person2")
-                                (Token "" "")
-                                (Constant 1)
+                            (Constant 2)
+                            (When
+                                [Case
+                                    (Deposit
+                                        (Role "intermediate")
+                                        (PK "person2")
+                                        (Token "" "")
+                                        (Constant 1)
+                                    )
+                                    (Pay
+                                        (Role "intermediate")
+                                        (Account (PK "person1"))
+                                        (Token "" "")
+                                        (Constant 1)
+                                        Close 
+                                    )]
+                                80
+                                (Pay
+                                    (PK "person2")
+                                    (Account (PK "person1"))
+                                    (Token "" "")
+                                    (Constant 1)
+                                    Close 
+                                )
                             )
-                            (Pay
-                                (Role "intermediate")
-                                (Account (PK "person1"))
-                                (Token "" "")
-                                (Constant 1)
-                                Close 
-                            )]
-                        60
+                        )
                         (Pay
-                            (PK "person2")
+                            (Role "intermediate")
                             (Account (PK "person1"))
                             (Token "" "")
                             (Constant 1)
-                            Close 
+                            (Pay
+                                (Role "intermediate")
+                                (Account (PK "person2"))
+                                (Token "" "")
+                                (Constant 1)
+                                Close 
+                            )
                         )
                     )
-                )
-                (Pay
-                    (Role "intermediate")
-                    (Account (PK "person1"))
-                    (Token "" "")
-                    (Constant 1)
-                    (Pay
-                        (Role "intermediate")
-                        (Account (PK "person2"))
-                        (Token "" "")
-                        (Constant 1)
-                        Close 
-                    )
-                )
+                )]
+            40
+            (Pay
+                (Role "intermediate")
+                (Account (PK "person2"))
+                (Token "" "")
+                (Constant 1)
+                Close 
             )
         )]
-    40
-    (Pay
-        (Role "intermediate")
-        (Account (PK "person1"))
-        (Token "" "")
-        (Constant 1)
-        Close 
-    )
+    20 Close 
