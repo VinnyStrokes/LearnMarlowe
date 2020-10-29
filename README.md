@@ -11,3 +11,7 @@ two parties agree that a 3rd party 'judge' is to choose who gets the sum of thei
 
 known issues:
 1. if 'chosen' party has spent all funds in account at slot 60, no funds are available to be paid back
+2. Error during warning analysis
+Analysis failed for the following reason:
+
+    Decoding error: ("[object Object]" : Nil)
